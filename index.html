@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuryaSetu | Your Bridge to Digital Services</title>
+    <meta name="description" content="SuryaSetu - Premium Digital & Government Service Assistance. PAN, Aadhaar, GST, ITR, and Student Services.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #0B2447;   /* Deep Royal Blue */
+            --primary-light: #19376D;
+            --primary-orange: #FF671F; /* Indian Saffron */
+            --orange-glow: #ff8c00;
+            --accent-light: #E5F6FF;
+            --text-dark: #1F2937;
+            --text-gray: #4B5563;
+            --white: #FFFFFF;
+            --success: #10B981;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(11, 36, 71, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(11, 36, 71, 0.15);
+            --radius: 16px;
+            --gradient-primary: linear-gradient(135deg, #0B2447 0%, #061833 100%);
+            --gradient-btn: linear-gradient(135deg, #FF671F 0%, #FF4500 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: #F8FAFC;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-btn);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(255, 103, 31, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 103, 31, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-orange { color: var(--primary-orange); }
+        .text-blue { color: var(--primary-blue); }
+
+        .badge {
+            background: rgba(255, 103, 31, 0.1);
+            color: var(--primary-orange);
+            border: 1px solid rgba(255, 103, 31, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: 48px;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a:not(.btn) {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:not(.btn)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:not(.btn):hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:not(.btn):hover {
+            color: var(--primary-orange);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+            padding: 140px 0 100px;
+            color: white;
+        }
+
+        /* Tech Grid Background Pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 103, 31, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            color: #E2E8F0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 { 
+            font-size: 2rem; 
+            color: var(--primary-orange);
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .stat-item p { 
+            font-size: 0.95rem; 
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Underline decoration */
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary-blue);
+        }
+        
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .feature-box {
+            background: #F8FAFC;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--primary-blue);
+        }
+
+        .check-icon {
+            color: var(--white);
+            background: var(--success);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            background-color: #F1F5F9;
+        }
+
+        .disclaimer-banner {
+            background-color: #FFF7ED;
+            border: 1px solid #FED7AA;
+            color: #9A3412;
+            padding: 16px;
+            margin-bottom: 50px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: var(--accent-light);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: #e0f2fe;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            margin-top: auto; /* Pushes table to bottom */
+        }
+
+        .price-table tr {
+            transition: background 0.2s;
+        }
+
+        .price-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .price-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--text-gray);
+        }
+
+        .price-table td:first-child {
+            padding-left: 8px;
+        }
+        
+        .price-table td:last-child {
+            text-align: right;
+            padding-right: 8px;
+            font-weight: 700;
+            color: var(--primary-orange);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* --- PACKAGES SECTION (REVAMPED) --- */
+        .packages {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .packages::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-orange);
+            filter: blur(150px);
+            opacity: 0.15;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* New Grid for Packages */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 103, 31, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Highlight specific card */
+        .package-card.featured {
+            border: 2px solid var(--primary-orange);
+            background: rgba(255, 103, 31, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-btn);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+        }
+
+        .package-card h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 15px; 
+            color: white;
+        }
+        
+        .package-price { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            color: var(--primary-orange); 
+            margin-bottom: 25px; 
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(255, 103, 31, 0.3);
+        }
+        
+        .package-price span { 
+            font-size: 0.9rem; 
+            color: #94a3b8; 
+            font-weight: 500; 
+        }
+        
+        .package-features { 
+            margin-bottom: 30px; 
+            text-align: left;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 12px;
+            flex-grow: 1; /* Pushes button to bottom */
+        }
+        
+        .package-features li { 
+            margin-bottom: 12px; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* --- HOW IT WORKS --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            padding-top: 20px;
+        }
+        
+        /* Connecting Line */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 100px;
+            right: 100px;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #cbd5e1 0, #cbd5e1 10px, transparent 10px, transparent 20px);
+            z-index: 0;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            color: var(--primary-orange);
+            border: 2px solid var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            box-shadow: 0 0 0 8px #F8FAFC; /* Create gap in line */
+            transition: transform 0.3s;
+        }
+        
+        .step-item:hover .step-number {
+            transform: scale(1.1);
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        .step-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        /* --- FAQ SECTION --- */
+        .faq-section {
+            background-color: #F8FAFC;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-orange);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.05rem;
+        }
+
+        .faq-icon {
+            color: var(--primary-orange);
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer p {
+            padding: 0 25px 25px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust based on content length */
+            border-top: 1px solid #f1f5f9;
+        }
+        
+        .faq-item.active .faq-answer p {
+             padding-top: 15px; 
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-md);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5); 
+            background-color: #22c35e;
+        }
+
+        .email-btn {
+            background-color: var(--primary-blue); /* Solid Brand Blue */
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 15px rgba(11, 36, 71, 0.3);
+            text-decoration: none;
+            border: none;
+        }
+
+        .email-btn:hover {
+            background-color: #1a3c6e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(11, 36, 71, 0.5);
+            color: white;
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+            text-decoration: none;
+            border: none;
+        }
+        
+        .instagram-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.5); 
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0B1120;
+            color: #94a3b8;
+            padding: 80px 0 30px;
+            font-size: 0.95rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .footer-brand {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-brand h3 { 
+            color: var(--white); 
+            font-size: 1.8rem; 
+            margin-bottom: 15px; 
+            letter-spacing: -0.5px;
+        }
+        .footer-brand span { color: var(--primary-orange); }
+        
+        .footer-links {
+            min-width: 150px;
+        }
+
+        .footer-links h4 { 
+            color: var(--white); 
+            margin-bottom: 25px; 
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-links ul li { margin-bottom: 12px; }
+        .footer-links ul li a { 
+            transition: color 0.2s; 
+            display: inline-block;
+        }
+        .footer-links ul li a:hover { 
+            color: var(--primary-orange); 
+            transform: translateX(5px);
+        }
+
+        .legal-disclaimer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #334155;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            line-height: 1.6;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .process-steps::before { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .package-card.featured { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 80px; 
+                left: 0; 
+                width: 100%; 
+                background: white; 
+                flex-direction: column; 
+                padding: 30px; 
+                text-align: center; 
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+                border-top: 1px solid #f1f5f9;
+            }
+            .nav-links.active { display: flex; animation: fadeInUp 0.3s forwards; }
+            .mobile-menu-btn { display: block; }
+            .hero-stats { flex-direction: column; gap: 30px; }
+            .contact-btn-group { flex-direction: column; width: 100%; }
+            .whatsapp-btn, .email-btn { width: 100%; justify-content: center; }
+            .section-padding { padding: 70px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo-container">
+                <!-- SVG LOGO -->
+                <svg class="logo-img" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="sunGradient" x1="32" y1="42" x2="32" y2="20" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF671F"/>
+                            <stop offset="1" stop-color="#FF8C00"/>
+                        </linearGradient>
+                        <linearGradient id="bridgeGradient" x1="4" y1="32" x2="60" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#0B2447"/>
+                            <stop offset="0.5" stop-color="#1e40af"/>
+                            <stop offset="1" stop-color="#0B2447"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="32" cy="32" r="28" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+                    <path d="M32 34C24.268 34 18 40.268 18 48H46C46 40.268 39.732 34 32 34Z" fill="url(#sunGradient)"/>
+                    <path d="M32 28V22M18 30L12 24M46 30L52 24" stroke="#FF671F" stroke-width="2" stroke-linecap="round" stroke-opacity="0.8"/>
+                    <path d="M8 48C8 28 20 14 32 14C44 14 56 28 56 48" stroke="url(#bridgeGradient)" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M8 48C8 28 20 14 32 14C44 14 56 28 56 48" stroke="white" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round" stroke-opacity="0.3"/>
+                    <circle cx="8" cy="48" r="3" fill="#0B2447"/>
+                    <circle cx="56" cy="48" r="3" fill="#0B2447"/>
+                    <circle cx="32" cy="14" r="3" fill="#0B2447"/>
+                </svg>
+                <div class="logo-text">Surya<span>Setu</span></div>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#process">How It Works</a>
+                <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.95rem;">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content reveal active">
+            <span class="badge" style="margin-bottom: 25px; border-color: rgba(255,255,255,0.2); color: #FFD1A6;">🇮🇳 Proudly Serving Digital India</span>
+            <h1 style="animation: fadeInUp 0.8s ease-out;">Your Bridge to <span style="color: var(--primary-orange); display: inline-block;">Digital Services</span></h1>
+            <p style="animation: fadeInUp 0.8s ease-out 0.2s backwards;">Fast, reliable, and secure assistance for all your online documentation, banking, and student needs. We navigate the bureaucracy so you don't have to.</p>
+            <div style="animation: fadeInUp 0.8s ease-out 0.4s backwards;">
+                <a href="#services" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px;">Get Service Now</a>
+            </div>
+            
+            <div class="hero-stats" style="animation: fadeInUp 0.8s ease-out 0.6s backwards;">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Services</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30 Mins</h3>
+                    <p>Response</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Secure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2>Empowering Citizens Through Technology</h2>
+                    <p>SuryaSetu is a premium private digital facilitation platform designed to simplify the complex world of online documentation for Indian citizens.</p>
+                    <p>We act as a secure bridge between technology and the common man. Whether you are a student applying for exams or a business owner filing GST, our experts handle the technical work accurately.</p>
+                    
+                    <div class="feature-box">
+                        <ul class="feature-list">
+                            <li><span class="check-icon">✓</span> 100% Private & Confidential Data Handling</li>
+                            <li><span class="check-icon">✓</span> Expert Form Filling with Zero Errors</li>
+                            <li><span class="check-icon">✓</span> Transparent Pricing, No Hidden Fees</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 0.2s;">
+                    <!-- CSS Art for "Bridge" visualization -->
+                    <div style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); padding: 50px; border-radius: 30px; display: inline-block; box-shadow: 0 20px 40px rgba(11, 36, 71, 0.08);">
+                        <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#0B2447" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="animation: float 6s ease-in-out infinite;">
+                            <path d="M4 14a2 2 0 0 1 2-2 7 7 0 0 1 14 0 2 2 0 0 1 2 2" stroke="#FF671F" stroke-width="2"/>
+                            <rect x="2" y="14" width="20" height="8" rx="2" fill="#fff"/>
+                            <path d="M6 14v4" /><path d="M10 14v4" /><path d="M14 14v4" /><path d="M18 14v4" />
+                            <path d="M12 4v8" stroke-dasharray="2 2" stroke="#94a3b8"/><path d="M12 4l-4 4" stroke="#94a3b8"/><path d="M12 4l4 4" stroke="#94a3b8"/>
+                            <circle cx="12" cy="18" r="1" fill="#FF671F" stroke="none"/>
+                        </svg>
+                        <p style="margin-top: 20px; font-weight: 700; color: var(--primary-blue); font-size: 1.1rem;">Trusted by 300+ Users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Services & Charges</h2>
+                <p>Professional assistance at transparent standard rates.</p>
+            </div>
+
+            <div class="disclaimer-banner reveal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span><strong>IMPORTANT:</strong> Prices are for <em>Service/Assistance Charges only</em>. Government fees or Challan amounts are separate and paid by the customer.</span>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🎓</div>
+                    <h3>Student & Education</h3>
+                    <table class="price-table">
+                        <tr><td>Govt Exam Form</td><td>₹80</td></tr>
+                        <tr><td>College Admission</td><td>₹100</td></tr>
+                        <tr><td>Scholarship Form</td><td>₹150</td></tr>
+                        <tr><td>Internship/Apprentice</td><td>₹120</td></tr>
+                    </table>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <div class="service-icon">🆔</div>
+                    <h3>Identity Documents</h3>
+                    <table class="price-table">
+                        <tr><td>New PAN Card</td><td>₹150</td></tr>
+                        <tr><td>PAN Correction</td><td>₹200</td></tr>
+                        <tr><td>Aadhaar Print/PVC</td><td>₹50</td></tr>
+                        <tr><td>Voter ID Apply</td><td>₹100</td></tr>
+                    </table>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <div class="service-icon">🏛️</div>
+                    <h3>CSC / E-District</h3>
+                    <table class="price-table">
+                        <tr><td>Income Certificate</td><td>₹150</td></tr>
+                        <tr><td>Caste/Domicile Cert.</td><td>₹150</td></tr>
+                        <tr><td>Ration Card Apply</td><td>₹200</td></tr>
+                        <tr><td>Employment Reg.</td><td>₹100</td></tr>
+                    </table>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card reveal" style="transition-delay: 0.3s;">
+                    <div class="service-icon">📈</div>
+                    <h3>Business & Tax</h3>
+                    <table class="price-table">
+                        <tr><td>GST Registration</td><td>₹999</td></tr>
+                        <tr><td>GST Nil Return</td><td>₹300</td></tr>
+                        <tr><td>ITR Filing (Salaried)</td><td>₹800</td></tr>
+                        <tr><td>MSME/Udyam Reg.</td><td>₹300</td></tr>
+                    </table>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card reveal" style="transition-delay: 0.4s;">
+                    <div class="service-icon">🏦</div>
+                    <h3>Banking & Finance</h3>
+                    <ul style="width: 100%; margin-top: auto; list-style: none;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: var(--text-gray); display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--success);">✓</span> SIP / Investment KYC
+                        </li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: var(--text-gray); display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--success);">✓</span> Home Loan Assistance
+                        </li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: var(--text-gray); display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--success);">✓</span> Personal Loan Advice
+                        </li>
+                        <li style="padding: 12px 0; color: var(--text-gray); display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--success);">✓</span> Life Certificate
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card reveal" style="transition-delay: 0.5s;">
+                    <div class="service-icon">💻</div>
+                    <h3>Cyber Services</h3>
+                    <table class="price-table">
+                        <tr><td>Resume Making</td><td>₹100</td></tr>
+                        <tr><td>Passport Apply</td><td>₹250</td></tr>
+                        <tr><td>Passport Renewal</td><td>₹200</td></tr>
+                        <tr><td>Scanning/Email</td><td>₹20</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Packages (REVAMPED TO GRID) -->
+    <section class="section-padding packages">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 style="color: white; border-color: rgba(255,255,255,0.2);">Smart Bundles</h2>
+                <p style="color: #cbd5e1;">Choose a value pack and save up to 40%.</p>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Package 1: Student -->
+                <div class="package-card featured reveal">
+                    <div class="popular-tag">Best for Students</div>
+                    <h3>Exam Success Pack</h3>
+                    <div class="package-price">₹199 <span>/ month</span></div>
+                    <ul class="package-features">
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> 3 Govt Job Form Fillings</li>
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> WhatsApp Admit Card Alerts</li>
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> Scholarship Assistance</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Select Pack</a>
+                </div>
+
+                <!-- Package 2: Job Seeker -->
+                <div class="package-card reveal" style="transition-delay: 0.2s;">
+                    <h3>Job Seeker Pro</h3>
+                    <div class="package-price">₹299 <span>/ one-time</span></div>
+                    <ul class="package-features">
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> Premium Resume Design</li>
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> LinkedIn Profile Optimization</li>
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> 5 Job Applications Apply</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%;">Select Pack</a>
+                </div>
+
+                <!-- Package 3: Business -->
+                <div class="package-card reveal" style="transition-delay: 0.4s;">
+                    <h3>Business Starter</h3>
+                    <div class="package-price">₹999 <span>/ year</span></div>
+                    <ul class="package-features">
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> GST Registration & Filing</li>
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> Udyam / MSME Certificate</li>
+                        <li><span class="check-icon" style="background: rgba(255,255,255,0.2);">✓</span> Annual Compliance Check</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%;">Select Pack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="process" class="section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>How It Works</h2>
+                <p>Get your work done in 3 simple steps</p>
+            </div>
+            <div class="process-steps">
+                <div class="step-item reveal">
+                    <div class="step-number">1</div>
+                    <h3>Send Details</h3>
+                    <p style="color: var(--text-gray);">Send your documents via WhatsApp or Email securely.</p>
+                </div>
+                <div class="step-item reveal" style="transition-delay: 0.2s;">
+                    <div class="step-number">2</div>
+                    <h3>Verification & Pay</h3>
+                    <p style="color: var(--text-gray);">We verify details, fill the form, and you pay the fees online.</p>
+                </div>
+                <div class="step-item reveal" style="transition-delay: 0.4s;">
+                    <div class="step-number">3</div>
+                    <h3>Get Receipt</h3>
+                    <p style="color: var(--text-gray);">Receive your acknowledgment, admit card, or certificate instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding faq-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our digital services.</p>
+            </div>
+            <div class="faq-container reveal">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is SuryaSetu a government website?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, SuryaSetu is a private consultancy and digital facilitation center. We are not affiliated with the government. We charge a service fee for assisting you with online forms, documentation, and filings to save you time and effort.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my personal data and document safe?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely. We follow a strict data privacy policy. Your documents are used solely for the purpose of your application and are deleted from our systems after the service is completed. We never share your data with third parties.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What if my application gets rejected?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If an application is rejected due to an error on our part, we will re-apply for you free of cost or provide a full refund of our service charge. However, rejections due to ineligibility or incorrect documents provided by you are not refundable.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I make the payment?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all digital payment modes including UPI (Google Pay, PhonePe, Paytm), Net Banking, and Credit/Debit Cards. Payment links are shared securely via WhatsApp or Email after document verification.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How will I get my receipt or admit card?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once your form is submitted successfully, we will instantly share the PDF acknowledgement, receipt, or admit card with you via WhatsApp and Email. You can take a printout at your convenience.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you provide services on Sundays?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our digital support team is active 7 days a week from 9:00 AM to 9:00 PM to assist you with urgent form fillings and queries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <div class="contact-box reveal">
+                <h2 style="color: var(--primary-blue); margin-bottom: 15px;">Ready to get started?</h2>
+                <p style="font-size: 1.1rem; color: var(--text-gray);">We usually reply within 30 minutes during business hours.</p>
+                
+                <div class="contact-btn-group">
+                    <!-- Updated WhatsApp Link with target="_blank" and pre-filled text -->
+                    <a href="https://wa.me/918700595590?text=Hello,%20I%20need%20assistance%20with%20SuryaSetu%20services." class="whatsapp-btn" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        Chat on WhatsApp (+91 8700595590)
+                    </a>
+                    <a href="https://www.instagram.com/surya_setu.in?igsh=cDZ1NXJxZzNmemlo" class="instagram-btn" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        Follow on Instagram
+                    </a>
+                    <!-- Updated Mail Link with Subject for Direct Compose -->
+                    <a href="mailto:suryasetu@zohomail.in?subject=Service%20Inquiry%20-%20SuryaSetu" class="email-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        suryasetu@zohomail.in
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <span style="font-size: 1.5rem;">☀️</span> <!-- Quick Emoji Placeholder for brand icon in footer -->
+                        <h3 style="margin: 0;">Surya<span>Setu</span></h3>
+                    </div>
+                    <p style="line-height: 1.8; opacity: 0.8;">Making digital India accessible to everyone. Premium assistance for students, job seekers, and business owners.</p>
+                    <p style="margin-top: 20px; color: var(--white); font-weight: 600;">New Delhi, India</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- MANDATORY DISCLAIMER -->
+            <div class="legal-disclaimer">
+                <strong>DISCLAIMER:</strong> SuryaSetu is a private digital service platform and is not affiliated with any government authority. All services are provided as assistance and facilitation only. We charge for our time and expertise in filling forms; government fees are separate.
+            </div>
+            
+            <p class="text-center" style="margin-top: 30px; opacity: 0.4; font-size: 0.85rem;">
+                &copy; 2026 SuryaSetu Services. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if(window.innerWidth < 768) {
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ Accordion Script
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other open items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
